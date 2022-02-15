@@ -19,7 +19,7 @@ int main(void) {
   new_x = (int *)malloc(N * sizeof(int));
 
   if (cudaMalloc(&d_x, N * sizeof(int)) != cudaSuccess) {
-    printf("Error: failed to  allocate %d bytes on device for d_x\n",
+    printf("Error: failed to  allocate %lu bytes on device for d_x\n",
            N * sizeof(int));
   }
 
@@ -30,7 +30,7 @@ int main(void) {
 
   if (cudaMemcpy(d_x, x, N * sizeof(int), cudaMemcpyHostToDevice) !=
       cudaSuccess) {
-    printf("Error: failed to copy %d bytes from host to device\n",
+    printf("Error: failed to copy %lu bytes from host to device\n",
            N * sizeof(int));
   }
 
@@ -38,7 +38,7 @@ int main(void) {
 
   if (cudaMemcpy(new_x, d_x, N * sizeof(int), cudaMemcpyDeviceToHost) !=
       cudaSuccess) {
-    printf("Error: failed to copy %d bytes from device to host\n",
+    printf("Error: failed to copy %lu bytes from device to host\n",
            N * sizeof(int));
   }
 
