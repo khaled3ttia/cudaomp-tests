@@ -1,5 +1,5 @@
 #include <cuda.h>
-#include <iostream>
+#include <stdio.h>
 
 __global__ void testAdd(int *x) {
 
