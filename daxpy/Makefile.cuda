@@ -1,0 +1,6 @@
+default:
+	clang++ -I/usr/local/cuda-11.4/include -std=c++14 -Wall --cuda-gpu-arch=sm_75 -O3 -c main.cu -o main.o
+	clang++ -I/usr/local/cuda-11.4/include -std=c++14 -Wall --cuda-gpu-arch=sm_75 -O3 main.o -o main.out -L/usr/local/cuda-11.4/lib64 -lcudart -lcuda 
+clean:
+	rm *.o
+	rm *.out
