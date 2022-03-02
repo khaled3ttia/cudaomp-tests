@@ -1,5 +1,5 @@
 default:
-	clang++ -std=c++14 --save-temps --cuda-gpu-arch=sm_75 -cudaomp -O3 -c main.cu -o main.o
+	clang++ -std=c++14 --cuda-gpu-arch=sm_75 -cudaomp -O3 -c main.cu -o main.o
 	clang++ -std=c++14 main.o -ldl -lrt -pthread -lomptarget -lomp -o main.out 
 
 clean:

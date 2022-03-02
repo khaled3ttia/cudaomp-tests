@@ -1,14 +1,9 @@
 #include <cuda.h>
 #include <iostream>
-/*
-__global__ void testAdd(int *x) {
 
-  for (int i = 0; i < 10; i++) {
-
-    atomicAdd(&x[i], 5);
-  }
+__global__ void doNothing() {
 }
-*/
+
 
 int main(void) {
 
@@ -35,7 +30,7 @@ int main(void) {
            N * sizeof(int));
   }
 
-  // testAdd<<<1, 10>>>(d_x);
+  doNothing<<<1, 10>>>();
 
   if (cudaMemcpy(new_x, d_x, N * sizeof(int), cudaMemcpyDeviceToHost) !=
       cudaSuccess) {
